@@ -79,12 +79,260 @@
 # Use `Model.destroy_all` code.
 # TODO!
 
+Studio.destroy_all
+Movie.destroy_all
+Actor.destroy_all
+Role.destroy_all
+Agent.destroy_all
+
+
 # Generate models and tables, according to the domain model.
 # TODO!
+
+#Generated in the terminal and edited in db/migrate
 
 # Insert data into the database that reflects the sample data shown above.
 # Do not use hard-coded foreign key IDs.
 # TODO!
+
+# Studios
+
+warner_bros = Studio.new
+warner_bros.name = "Warner Bros."
+warner_bros.save
+
+# Movies
+
+batman_begins = Movie.new
+batman_begins.title = "Batman Begins"
+batman_begins.year_released = 2005
+batman_begins.rated = "PG-13"
+batman_begins.studio_id = warner_bros.id
+batman_begins.save
+
+dark_knight = Movie.new
+dark_knight.title = "The Dark Knight"
+dark_knight.year_released = 2008
+dark_knight.rated = "PG-13"
+dark_knight.studio_id = warner_bros.id
+dark_knight.save
+
+dark_knight_rises = Movie.new
+dark_knight_rises.title = "The Dark Knight Rises"
+dark_knight_rises.year_released = 2012
+dark_knight_rises.rated = "PG-13"
+dark_knight_rises.studio_id = warner_bros.id
+dark_knight_rises.save
+
+#Agents
+
+bryan_lourd = Agent.new
+bryan_lourd.name = "Bryan Lourd"
+bryan_lourd.save
+
+david_wirtschafter = Agent.new
+david_wirtschafter.name = "David Wirtschafter"
+david_wirtschafter.save
+
+michelle_bohan = Agent.new
+michelle_bohan.name = "Michelle Bohan"
+michelle_bohan.save
+
+rick_yorn = Agent.new
+rick_yorn.name = "Rick Yorn"
+rick_yorn.save
+
+peter_principato = Agent.new
+peter_principato.name = "Peter Principato"
+peter_principato.save
+
+ari_gold = Agent.new
+ari_gold.name = "Ari Gold"
+ari_gold.save
+
+# Actors
+
+christian_bale = Actor.new
+christian_bale.name = "Christian Bale"
+christian_bale.agent_id = ari_gold.id
+christian_bale.save
+
+heath_ledger = Actor.new
+heath_ledger.name = "Heath Ledger"
+heath_ledger.agent_id = david_wirtschafter.id
+heath_ledger.save
+
+michael_caine = Actor.new
+michael_caine.name = "Michael Caine"
+michael_caine.agent_id = bryan_lourd.id
+michael_caine.save
+
+gary_oldman = Actor.new
+gary_oldman.name = "Gary Oldman"
+gary_oldman.agent_id = michelle_bohan.id
+gary_oldman.save
+
+aaron_eckhart = Actor.new
+aaron_eckhart.name = "Aaron Eckhart"
+aaron_eckhart.agent_id = bryan_lourd.id
+aaron_eckhart.save
+
+morgan_freeman = Actor.new
+morgan_freeman.name = "Morgan Freeman"
+morgan_freeman.agent_id = bryan_lourd.id
+morgan_freeman.save
+
+anne_hathaway = Actor.new
+anne_hathaway.name = "Anne Hathaway"
+anne_hathaway.agent_id = david_wirtschafter.id
+anne_hathaway.save
+
+tom_hardy = Actor.new
+tom_hardy.name = "Tom Hardy"
+tom_hardy.agent_id = bryan_lourd.id
+tom_hardy.save
+
+liam_neeson = Actor.new
+liam_neeson.name = "Liam Neeson"
+liam_neeson.agent_id = bryan_lourd.id
+liam_neeson.save
+
+katie_holmes = Actor.new
+katie_holmes.name = "Katie Holmes"
+katie_holmes.agent_id = rick_yorn.id
+katie_holmes.save
+
+maggie_gyllenhaal = Actor.new
+maggie_gyllenhaal.name = "Maggie Gyllenhaal"
+maggie_gyllenhaal.agent_id = peter_principato.id
+maggie_gyllenhaal.save
+
+joseph_gordon_levitt = Actor.new
+joseph_gordon_levitt.name = "Joseph Gordon-Levitt"
+joseph_gordon_levitt.agent_id = bryan_lourd.id
+joseph_gordon_levitt.save
+
+# Roles
+
+role1 = Role.new
+role1.movie_id = batman_begins.id
+role1.actor_id = christian_bale.id
+role1.character_name = "Batman / Bruce Wayne"
+role1.save
+
+role2 = Role.new
+role2.movie_id = batman_begins.id
+role2.actor_id = michael_caine.id
+role2.character_name = "Alfred Pennyworth"
+role2.save
+
+role3 = Role.new
+role3.movie_id = batman_begins.id
+role3.actor_id = gary_oldman.id
+role3.character_name = "Jim Gordon"
+role3.save
+
+role4 = Role.new
+role4.movie_id = batman_begins.id
+role4.actor_id = morgan_freeman.id
+role4.character_name = "Lucius Fox"
+role4.save
+
+role5 = Role.new
+role5.movie_id = batman_begins.id
+role5.actor_id = liam_neeson.id
+role5.character_name = "Ra's al Ghul"
+role5.save
+
+role6 = Role.new
+role6.movie_id = batman_begins.id
+role6.actor_id = katie_holmes.id
+role6.character_name = "Rachel Dawes"
+role6.save
+
+role7 = Role.new
+role7.movie_id = dark_knight.id
+role7.actor_id = christian_bale.id
+role7.character_name = "Batman / Bruce Wayne"
+role7.save
+
+role8 = Role.new
+role8.movie_id = dark_knight.id
+role8.actor_id = heath_ledger.id
+role8.character_name = "Joker"
+role8.save
+
+role9 = Role.new
+role9.movie_id = dark_knight.id
+role9.actor_id = michael_caine.id
+role9.character_name = "Alfred Pennyworth"
+role9.save
+
+role10 = Role.new
+role10.movie_id = dark_knight.id
+role10.actor_id = gary_oldman.id
+role10.character_name = "Jim Gordon"
+role10.save
+
+role11 = Role.new
+role11.movie_id = dark_knight.id
+role11.actor_id = aaron_eckhart.id
+role11.character_name = "Harvey Dent / Two-Face"
+role11.save
+
+role12 = Role.new
+role12.movie_id = dark_knight.id
+role12.actor_id = morgan_freeman.id
+role12.character_name = "Lucius Fox"
+role12.save
+
+role13 = Role.new
+role13.movie_id = dark_knight.id
+role13.actor_id = maggie_gyllenhaal.id
+role13.character_name = "Rachel Dawes"
+role13.save
+
+role14 = Role.new
+role14.movie_id = dark_knight_rises.id
+role14.actor_id = christian_bale.id
+role14.character_name = "Batman / Bruce Wayne"
+role14.save
+
+role15 = Role.new
+role15.movie_id = dark_knight_rises.id
+role15.actor_id = michael_caine.id
+role15.character_name = "Alfred Pennyworth"
+role15.save
+
+role16 = Role.new
+role16.movie_id = dark_knight_rises.id
+role16.actor_id = gary_oldman.id
+role16.character_name = "Jim Gordon"
+role16.save
+
+role17 = Role.new
+role17.movie_id = dark_knight_rises.id
+role17.actor_id = morgan_freeman.id
+role17.character_name = "Lucius Fox"
+role17.save
+
+role18 = Role.new
+role18.movie_id = dark_knight_rises.id
+role18.actor_id = anne_hathaway.id
+role18.character_name = "Selina Kyle / Catwoman"
+role18.save
+
+role19 = Role.new
+role19.movie_id = dark_knight_rises.id
+role19.actor_id = tom_hardy.id
+role19.character_name = "Bane"
+role19.save
+
+role20 = Role.new
+role20.movie_id = dark_knight_rises.id
+role20.actor_id = joseph_gordon_levitt.id
+role20.character_name = "John Blake"
+role20.save
 
 # Prints a header for the movies output
 puts "Movies"
@@ -93,6 +341,13 @@ puts ""
 
 # Query the movies data and loop through the results to display the movies output.
 # TODO!
+
+movies = Movie.all
+
+for movie in movies
+  studio = Studio.find_by(id: movie.studio_id)
+  puts "#{movie.title} #{movie.year_released} #{movie.rated} #{studio.name}"
+end
 
 # Prints a header for the cast output
 puts ""
